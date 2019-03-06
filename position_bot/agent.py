@@ -58,7 +58,7 @@ class VanillaQAgent:
 
     def act(self, state, i):
         eps = self.get_eps(i)
-        state = torch.from_numpy(state).float()
+        state = torch.from_numpy(state).float().to(device)
         self.qnetwork_local.eval()
         with torch.no_grad():
             action_values = self.qnetwork_local(state)
