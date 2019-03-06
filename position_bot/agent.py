@@ -66,7 +66,7 @@ class VanillaQAgent:
 
         #epsilon greedy
         if random.random() > eps:
-            return np.argmax(action_values.data.numpy(), axis = 1)
+            return np.argmax(action_values.data.cpu().numpy(), axis = 1)
         else:
             return random.choice(np.arange(self.action_size))
         
